@@ -3,7 +3,7 @@
 # Restaurant Recommendation System
 ## CMPE 256 Group Project
 
-![](/5.Archive/images/restaurant_image.jpeg)
+![](/5.Archive/images/restaurant_image_header.jpeg)
 
 
 ## Contents
