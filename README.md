@@ -34,6 +34,17 @@ Installation of below packages required before running the project
 
 ### Steps to run the project
 
+1. Create a folder in local for Above Git Repo and open in termianl to execute below commands-
+
+$ git clone https://github.com/divyaKh/CMPE256Project.git
+
+2. Navigate to folder EDA and run all ipynb file for business, reviews and users dataset in jupyter notebook or google colab
+
+3. Navigate to folder Data_Cleaning and all ipynb in jupyter notebook or google colab
+
+4. Navigate to folder Recommdation_System and run all ipynb in jupyter notebook to execute different recommendationsystem models
+
+
 ## Dataset
 
 Yelp Dataset: https://www.yelp.com/dataset
@@ -61,9 +72,19 @@ In this step, we divide the data into test and train and fed the data to differe
 
 ## Methodologies Used
 
-For the recommendation models, we preprocessed and split the dataset into test and training sets.We are able to pick the top performing for our hybrid model and then used GridSearchCV function from the surprise library that provides an easy way to tune and select the best hyperparameters to achieve best RMSE Scores.For the GridSearchCV, we provided a set of options for each model parameter and the function checks all the parameter combinations for the best parameters.  We evaluated three different KNN models namely, KNNBasic, KNNWithMeans, KNNBaseline, BaselineOnly, SVD and SVDpp for the restaurant recommendation system. We are using the K-Fold validation technique to eliminate any bias in test and training set choices. 
+For the recommendation models, we preprocessed and split the dataset into test and training sets. Based on the  below table, we are able to pick the top performing for our hybrid model and then used GridSearchCV function from the surprise library that provides an easy way to tune and select the best hyperparameters to achieve best RMSE Scores.For the GridSearchCV, we provided a set of options for each model parameter and the function checks all the parameter combinations for the best parameters.  We evaluated three different KNN models namely, KNNBasic, KNNWithMeans, KNNBaseline, BaselineOnly, SVD and SVDpp for the restaurant recommendation system. We are using the K-Fold validation technique to eliminate any bias in test and training set choices. 
+
+### Sentiment Analysis
+
+We also performed sentiment analysis of the reviews rather than just taking their star ratings for the restaurants. We used the textblob library for sentiment analysis which gives two types of scores for every user review. One is the sentiment score and the other is the subjectivity or polarity score. The sentiment score is in the range of -1 to 1, where -1 represents a very negative sentiment and vice versa. The polarity scores are in the range of 0 to 1, where 1 means the review is very subjective. We filtered out the reviews that have more than 0.6 polarity and with sentiment scores between -0.2 to 0.2. The intuition is that reviews with too much polarity are biased and reviews that are mostly neutral will not have much value in the recommendation model. 
+
 
 ## Conclusion
+
+1. Without hyperparameter tuning, the top performing model was BaselineOnly with RMSE as 0.941.
+2. With hyperparameter tuning, the top performing model was also BaselineOnly with RMSE as 0.916. It was observed that SVD also gave a good RMSE score of 0.921.
+3. Sentiment analysis of user reviews give better performing models than simply relying on user star ratings.
+
 
 ### Contributors
 
